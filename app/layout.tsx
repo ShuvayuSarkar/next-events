@@ -1,3 +1,4 @@
+import Navbar from "@/app/components/Navbar"
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -26,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        className={`${inter.className} bg-gray-900'}>
+          <Navbar />
+          
         {children}
       </body>
     </html>
