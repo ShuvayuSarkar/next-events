@@ -26,7 +26,7 @@ export default function Navbar() {
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <div className="flex h-16 justisfy-between">
+                        <div className="flex h-16 justify-between">
                             <div className="flex">
                                 <div className="flex flex-shrink-0 items-center">
                                     <Link href={"/"} className="font-bold text-3xl text-black">
@@ -50,7 +50,7 @@ export default function Navbar() {
                                     >
                                         Events
                                         {pathName === "/events" && (
-                                            <div className="h-1 bg-indigo-500 w-[82%] absolute bottom-[15px] left-1"></div>
+                                            <motion.div initial = {{ width:0 }} animate={{ width:"82%",transition:{duration:0.3,} }} className="h-1 bg-indigo-500 w-[82%] absolute bottom-[15px] left-1"></motion.div>
                                         )}
                                     </Link>
                                 </div>
@@ -119,7 +119,7 @@ export default function Navbar() {
                                     </button>
                                 )}
                             </div>
-                            <div className="-mr-2 flex items-center sm:hidden">
+                            <div className="flex items-center sm:hidden">
                                 {/* Mobile menu button */}
                                 <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                                     <span className="absolute -inset-0.5" />
