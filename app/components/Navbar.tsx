@@ -11,6 +11,8 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import {motion} from "framer-motion";
+import { usePathname } from "next/navigation";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -18,12 +20,13 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
     const user = true;
+    const pathName = usePathname();
     return (
         <Disclosure as="nav" className="bg-white shadow">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <div className="flex h-16 justify-between">
+                        <div className="flex h-16 justisfy-between">
                             <div className="flex">
                                 <div className="flex flex-shrink-0 items-center">
                                     <Link href={"/"} className="font-bold text-3xl text-black">
@@ -34,15 +37,21 @@ export default function Navbar() {
                                     {/* Current: "border-indigo-900 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                                     <Link
                                         href="/"
-                                        className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
+                                        className={`relative inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-900 ${pathName === "/" ? "text-indigo-600" : ""}`}
                                     >
                                         Home
+                                        {pathName === "/" && (
+                                            <motion.div initial = {{ width:0 }} animate={{ width:"82%",transition:{duration:0.3,} }} className="h-1 bg-indigo-500 w-[82%] absolute bottom-[15px] left-1"></motion.div>
+                                        )}
                                     </Link>
                                     <Link
                                         href="/events"
-                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                                        className={`relative inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-900 ${pathName === "/events" ? "text-indigo-600" : ""}`}
                                     >
                                         Events
+                                        {pathName === "/events" && (
+                                            <div className="h-1 bg-indigo-500 w-[82%] absolute bottom-[15px] left-1"></div>
+                                        )}
                                     </Link>
                                 </div>
                             </div>

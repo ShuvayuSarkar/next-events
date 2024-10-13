@@ -6,4 +6,4 @@ const EventsCityPage = () => {
   )
 }
 
-export default EventsCityPage
+export default EventsCityPage 
