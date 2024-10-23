@@ -1,5 +1,7 @@
 
+import { formatDate } from "@/lib/helpers";
 import { NextEvent } from "@/lib/types";
+import { formatRevalidate } from "next/dist/server/lib/revalidate";
 import Image from "next/image";
 
 const EventCard = ({ event }: { event: NextEvent }) => {
@@ -25,7 +27,7 @@ const EventCard = ({ event }: { event: NextEvent }) => {
 						className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black opacity-50"
 					/>
 					<p className="relative text-lg font-semibold text-white">
-						{(event.date)}
+						{formatDate(event.date)}
 					</p>
 				</div>
 			</div>
