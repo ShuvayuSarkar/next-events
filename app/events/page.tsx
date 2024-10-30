@@ -1,5 +1,4 @@
-import EventCard from "../components/EventCard";    
-import { NextEvent } from "@/lib/types";
+
 import Events from "../components/Events";
 import { events } from "@/lib/events";
 
